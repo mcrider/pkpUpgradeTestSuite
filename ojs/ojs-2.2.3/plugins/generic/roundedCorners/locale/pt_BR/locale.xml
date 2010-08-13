@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../locale/locale.dtd">
+
+<!--
+  * locale.xml
+  *
+  * Copyright (c) 2003-2009 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the pt_BR (Português (Brasil)) locale.
+  *
+  * $Id: locale.xml,v 1.4.2.1 2009/04/08 19:43:17 asmecher Exp $
+  -->
+ 
+<locale name="pt_BR" full_name="Português do Brasil">
+	<message key="plugins.generic.roundedcorners.displayName">Cantos Arredondados</message>
+	<message key="plugins.generic.roundedcorners.description">Este plugin insere imagens de fundo em cada bloco das barras laterais e arrendonda seus cantos. Altere as cores utilizando a folha de estilos CSS do plugin.</message>
+</locale>

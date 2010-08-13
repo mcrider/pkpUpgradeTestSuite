@@ -1,0 +1,140 @@
+<?php /* Smarty version 2.6.12, created on 2006-07-17 16:34:26
+         compiled from admin/languages.tpl */ ?>
+<?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
+smarty_core_load_plugins(array('plugins' => array(array('function', 'url', 'admin/languages.tpl', 15, false),array('function', 'translate', 'admin/languages.tpl', 17, false),array('modifier', 'escape', 'admin/languages.tpl', 25, false),)), $this); ?>
+
+<?php $this->assign('pageTitle', "common.languages");  $_smarty_tpl_vars = $this->_tpl_vars;
+$this->_smarty_include(array('smarty_include_tpl_file' => "common/header.tpl", 'smarty_include_vars' => array()));
+$this->_tpl_vars = $_smarty_tpl_vars;
+unset($_smarty_tpl_vars);
+ ?>
+
+<form method="post" action="<?php echo $this->_plugins['function']['url'][0][0]->smartyUrl(array('op' => 'saveLanguageSettings'), $this);?>
+">
+
+<h3><?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "admin.languages.languageSettings"), $this);?>
+</h3>
+
+<table class="form">
+<tr valign="top">
+	<td width="20%" class="label"><?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "locale.primary"), $this);?>
+</td>
+	<td width="80%" class="value">
+		<select name="primaryLocale" id="primaryLocale" size="1" class="selectMenu">
+		<?php $_from = $this->_tpl_vars['installedLocales']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
+    foreach ($_from as $this->_tpl_vars['localeKey']):
+?>
+			<option value="<?php echo $this->_tpl_vars['localeKey']; ?>
+"<?php if ($this->_tpl_vars['localeKey'] == $this->_tpl_vars['primaryLocale']): ?> selected="selected"<?php endif; ?>><?php echo ((is_array($_tmp=$this->_tpl_vars['localeNames'][$this->_tpl_vars['localeKey']])) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
+</option>
+		<?php endforeach; endif; unset($_from); ?>
+		</select>
+		<br />
+		<span class="instruct"><?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "admin.languages.primaryLocaleInstructions"), $this);?>
+</span>
+	</td>
+</tr>
+<tr valign="top">
+	<td class="label"><?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "locale.supported"), $this);?>
+</td>
+	<td>
+		<table width="100%">
+		<?php $_from = $this->_tpl_vars['installedLocales']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
+    foreach ($_from as $this->_tpl_vars['localeKey']):
+?>
+		<tr valign="top">
+			<td width="5%"><input type="checkbox" name="supportedLocales[]" id="supportedLocales-<?php echo $this->_tpl_vars['localeKey']; ?>
+" value="<?php echo $this->_tpl_vars['localeKey']; ?>
+"<?php if (in_array ( $this->_tpl_vars['localeKey'] , $this->_tpl_vars['supportedLocales'] )): ?> checked="checked"<?php endif; ?> /></td>
+			<td width="95%"><label for="supportedLocales-<?php echo $this->_tpl_vars['localeKey']; ?>
+"><?php echo ((is_array($_tmp=$this->_tpl_vars['localeNames'][$this->_tpl_vars['localeKey']])) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
+</label></td>
+		</tr>
+		<?php endforeach; endif; unset($_from); ?>
+		</table>
+		<span class="instruct"><?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "admin.languages.supportedLocalesInstructions"), $this);?>
+</span>
+	</td>
+</tr>
+<tr valign="top">
+	<td class="label"><?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "admin.languages.languageOptions"), $this);?>
+</td>
+	<td class="value">
+		<table width="100%">
+		<tr valign="top">
+			<td width="5%"><input type="checkbox" name="profileLocalesEnabled" id="profileLocalesEnabled" value="1"<?php if ($this->_tpl_vars['profileLocalesEnabled']): ?> checked="checked"<?php endif; ?> /></td>
+			<td width="95%"><label for="profileLocalesEnabled"><?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "admin.languages.profileLocales"), $this);?>
+</label></td>
+		</tr>
+		</table>
+	</td>
+</tr>
+</table>
+
+<p><input type="submit" value="<?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "common.save"), $this);?>
+" class="button defaultButton" /> <input type="button" value="<?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "common.cancel"), $this);?>
+" class="button" onclick="document.location.href='<?php echo $this->_plugins['function']['url'][0][0]->smartyUrl(array('page' => 'admin','escape' => false), $this);?>
+'" /></p>
+
+</form>
+
+<div class="separator"></div>
+
+<form method="post" action="<?php echo $this->_plugins['function']['url'][0][0]->smartyUrl(array('op' => 'installLocale'), $this);?>
+">
+
+<h3><?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "admin.languages.installLanguages"), $this);?>
+</h3>
+<h4><?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "admin.languages.installedLocales"), $this);?>
+</h4>
+<table class="data" width="100%">
+<?php $_from = $this->_tpl_vars['installedLocales']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
+    foreach ($_from as $this->_tpl_vars['localeKey']):
+?>
+<tr valign="top">
+	<td width="30%">&bull;&nbsp;<?php echo ((is_array($_tmp=$this->_tpl_vars['localeNames'][$this->_tpl_vars['localeKey']])) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
+ (<?php echo $this->_tpl_vars['localeKey']; ?>
+)</td>
+	<td width="70%"><a href="<?php echo $this->_plugins['function']['url'][0][0]->smartyUrl(array('op' => 'reloadLocale','locale' => $this->_tpl_vars['localeKey']), $this);?>
+" onclick="return confirm('<?php echo ((is_array($_tmp=$this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "admin.languages.confirmReload"), $this))) ? $this->_run_mod_handler('escape', true, $_tmp, 'javascript') : smarty_modifier_escape($_tmp, 'javascript'));?>
+')" class="action"><?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "admin.languages.reload"), $this);?>
+</a><?php if ($this->_tpl_vars['localeKey'] != $this->_tpl_vars['primaryLocale']): ?> <a href="<?php echo $this->_plugins['function']['url'][0][0]->smartyUrl(array('op' => 'uninstallLocale','locale' => $this->_tpl_vars['localeKey']), $this);?>
+" onclick="return confirm('<?php echo ((is_array($_tmp=$this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "admin.languages.confirmUninstall"), $this))) ? $this->_run_mod_handler('escape', true, $_tmp, 'javascript') : smarty_modifier_escape($_tmp, 'javascript'));?>
+')" class="action"><?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "admin.languages.uninstall"), $this);?>
+</a><?php endif; ?></td>
+</tr>
+<?php endforeach; endif; unset($_from); ?>
+</table>
+
+<h4><?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "admin.languages.installNewLocales"), $this);?>
+</h4>
+<p><?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "admin.languages.installNewLocalesInstructions"), $this);?>
+</p>
+<?php $_from = $this->_tpl_vars['uninstalledLocales']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
+    foreach ($_from as $this->_tpl_vars['localeKey']):
+?>
+<input type="checkbox" name="installLocale[]" id="installLocale-<?php echo $this->_tpl_vars['localeKey']; ?>
+" value="<?php echo $this->_tpl_vars['localeKey']; ?>
+" /> <label for="installLocale-<?php echo $this->_tpl_vars['localeKey']; ?>
+"><?php echo ((is_array($_tmp=$this->_tpl_vars['localeNames'][$this->_tpl_vars['localeKey']])) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
+ (<?php echo $this->_tpl_vars['localeKey']; ?>
+)</label><br />
+<?php endforeach; else:  $this->assign('noLocalesToInstall', '1'); ?>
+<span class="nodata"><?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "admin.languages.noLocalesAvailable"), $this);?>
+</span>
+<?php endif; unset($_from); ?>
+
+<?php if (! $this->_tpl_vars['noLocalesToInstall']): ?>
+<p><input type="submit" value="<?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "admin.languages.installLocales"), $this);?>
+" class="button defaultButton" /> <input type="button" value="<?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "common.cancel"), $this);?>
+" class="button" onclick="document.location.href='<?php echo $this->_plugins['function']['url'][0][0]->smartyUrl(array('page' => 'admin','escape' => false), $this);?>
+'" /></p>
+<?php endif; ?>
+
+</form>
+
+<?php $_smarty_tpl_vars = $this->_tpl_vars;
+$this->_smarty_include(array('smarty_include_tpl_file' => "common/footer.tpl", 'smarty_include_vars' => array()));
+$this->_tpl_vars = $_smarty_tpl_vars;
+unset($_smarty_tpl_vars);
+ ?>

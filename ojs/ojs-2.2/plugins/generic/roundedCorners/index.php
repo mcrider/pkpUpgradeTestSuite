@@ -1,0 +1,20 @@
+<?php
+
+/**
+ * @file index.php
+ *
+ * Copyright (c) 2003-2007 John Willinsky
+ * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ *
+ * Wrapper for rounded corners plugin.
+ *
+ * @package plugins.generic.roundedCorners
+ *
+ * $Id: index.php,v 1.4 2007/09/19 00:04:38 asmecher Exp $
+ */
+
+require_once('RoundedCornersPlugin.inc.php');
+
+return new RoundedCornersPlugin();
+
+?> 

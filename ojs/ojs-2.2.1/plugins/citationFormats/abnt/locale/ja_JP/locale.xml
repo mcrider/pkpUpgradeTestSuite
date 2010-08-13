@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../locale/locale.dtd">
+
+<!--
+  * locale.xml
+  *
+  * Copyright (c) 2003-2008 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for this citation plugin in ja_JP.
+  *
+  * $Id: locale.xml,v 1.2 2008/06/11 18:55:10 asmecher Exp $
+  -->
+ 
+<locale name="ja_JP" full_name="日本語">
+	<message key="plugins.citationFormats.abnt.displayName">ABNT 引用形式プラグイン</message>
+	<message key="plugins.citationFormats.abnt.citationFormatName">ABNT</message>
+	<message key="plugins.citationFormats.abnt.description">このプラグインはABNT引用形式を実装します。</message>
+	<message key="plugins.citationFormat.acao.location">北米</message>
+</locale>

@@ -1,0 +1,118 @@
+<?php /* Smarty version 2.6.10, created on 2005-09-21 12:20:12
+         compiled from author/submission/management.tpl */ ?>
+<?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
+smarty_core_load_plugins(array('plugins' => array(array('function', 'translate', 'author/submission/management.tpl', 13, false),array('function', 'icon', 'author/submission/management.tpl', 52, false),array('modifier', 'escape', 'author/submission/management.tpl', 17, false),array('modifier', 'date_format', 'author/submission/management.tpl', 27, false),array('modifier', 'strip_unsafe_html', 'author/submission/management.tpl', 81, false),array('modifier', 'nl2br', 'author/submission/management.tpl', 81, false),)), $this); ?>
+
+<a name="submission"></a>
+<h3><?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "article.submission"), $this);?>
+</h3>
+<table width="100%" class="data">
+	<tr valign="top">
+		<td width="20%" class="label"><?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "article.authors"), $this);?>
+</td>
+		<td width="80%" colspan="2" class="data"><?php echo ((is_array($_tmp=$this->_tpl_vars['submission']->getAuthorString(false))) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
+</td>
+	</tr>
+	<tr valign="top">
+		<td width="20%" class="label"><?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "article.title"), $this);?>
+</td>
+		<td width="80%" colspan="2" class="data"><?php echo ((is_array($_tmp=$this->_tpl_vars['submission']->getArticleTitle())) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
+</td>
+	</tr>
+	<tr valign="top">
+		<td width="20%" class="label"><?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "submission.originalFile"), $this);?>
+</td>
+		<td width="80%" colspan="2" class="data">
+			<?php if ($this->_tpl_vars['submissionFile']): ?>
+				<a href="<?php echo $this->_tpl_vars['requestPageUrl']; ?>
+/downloadFile/<?php echo $this->_tpl_vars['submission']->getArticleId(); ?>
+/<?php echo $this->_tpl_vars['submissionFile']->getFileId(); ?>
+/<?php echo $this->_tpl_vars['submissionFile']->getRevision(); ?>
+" class="file"><?php echo ((is_array($_tmp=$this->_tpl_vars['submissionFile']->getFileName())) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
+</a>&nbsp;&nbsp;<?php echo ((is_array($_tmp=$this->_tpl_vars['submissionFile']->getDateModified())) ? $this->_run_mod_handler('date_format', true, $_tmp, $this->_tpl_vars['dateFormatShort']) : smarty_modifier_date_format($_tmp, $this->_tpl_vars['dateFormatShort'])); ?>
+
+			<?php else: ?>
+				<?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "common.none"), $this);?>
+
+			<?php endif; ?>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td class="label"><?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "article.suppFilesAbbrev"), $this);?>
+</td>
+		<td width="30%" class="value">
+			<?php $_from = $this->_tpl_vars['suppFiles']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }$this->_foreach['suppFiles'] = array('total' => count($_from), 'iteration' => 0);
+if ($this->_foreach['suppFiles']['total'] > 0):
+    foreach ($_from as $this->_tpl_vars['suppFile']):
+        $this->_foreach['suppFiles']['iteration']++;
+?>
+				<a href="<?php echo $this->_tpl_vars['requestPageUrl']; ?>
+/editSuppFile/<?php echo $this->_tpl_vars['submission']->getArticleId(); ?>
+/<?php echo $this->_tpl_vars['suppFile']->getSuppFileId(); ?>
+" class="file"><?php echo ((is_array($_tmp=$this->_tpl_vars['suppFile']->getFileName())) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
+</a>&nbsp;&nbsp;<?php echo ((is_array($_tmp=$this->_tpl_vars['suppFile']->getDateModified())) ? $this->_run_mod_handler('date_format', true, $_tmp, $this->_tpl_vars['dateFormatShort']) : smarty_modifier_date_format($_tmp, $this->_tpl_vars['dateFormatShort'])); ?>
+<br />
+			<?php endforeach; else: ?>
+				<?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "common.none"), $this);?>
+
+			<?php endif; unset($_from); ?>
+		</td>
+		<td width="50%" class="value"><a href="<?php echo $this->_tpl_vars['requestPageUrl']; ?>
+/addSuppFile/<?php echo $this->_tpl_vars['submission']->getArticleId(); ?>
+" class="action"><?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "submission.addSuppFile"), $this);?>
+</a></td>
+	</tr>
+	<tr>
+		<td class="label"><?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "submission.submitter"), $this);?>
+</td>
+		<td colspan="2" class="value">
+			<?php $this->assign('submitter', $this->_tpl_vars['submission']->getUser()); ?>
+			<?php $this->assign('emailString', ($this->_tpl_vars['submitter']->getFullName())." <".($this->_tpl_vars['submitter']->getEmail()).">"); ?>
+			<?php $this->assign('emailStringEscaped', ((is_array($_tmp=$this->_tpl_vars['emailString'])) ? $this->_run_mod_handler('escape', true, $_tmp, 'url') : smarty_modifier_escape($_tmp, 'url'))); ?>
+			<?php $this->assign('urlEscaped', ((is_array($_tmp=$this->_tpl_vars['currentUrl'])) ? $this->_run_mod_handler('escape', true, $_tmp, 'url') : smarty_modifier_escape($_tmp, 'url'))); ?>
+			<?php $this->assign('subjectEscaped', ((is_array($_tmp=$this->_tpl_vars['submission']->getArticleTitle())) ? $this->_run_mod_handler('escape', true, $_tmp, 'url') : smarty_modifier_escape($_tmp, 'url'))); ?>
+			<?php echo ((is_array($_tmp=$this->_tpl_vars['submitter']->getFullName())) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
+ <?php echo $this->_plugins['function']['icon'][0][0]->smartyIcon(array('name' => 'mail','url' => ($this->_tpl_vars['pageUrl'])."/user/email?to[]=".($this->_tpl_vars['emailStringEscaped'])."&amp;redirectUrl=".($this->_tpl_vars['urlEscaped'])."&amp;subject=".($this->_tpl_vars['subjectEscaped'])), $this);?>
+
+		</td>
+	</tr>
+	<tr>
+		<td class="label"><?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "common.dateSubmitted"), $this);?>
+</td>
+		<td><?php echo ((is_array($_tmp=$this->_tpl_vars['submission']->getDateSubmitted())) ? $this->_run_mod_handler('date_format', true, $_tmp, $this->_tpl_vars['datetimeFormatLong']) : smarty_modifier_date_format($_tmp, $this->_tpl_vars['datetimeFormatLong'])); ?>
+</td>
+	</tr>
+	<tr valign="top">
+		<td width="20%" class="label"><?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "section.section"), $this);?>
+</td>
+		<td width="80%" colspan="2" class="data"><?php echo ((is_array($_tmp=$this->_tpl_vars['submission']->getSectionTitle())) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
+</td>
+	</tr>
+	<tr valign="top">
+		<td width="20%" class="label"><?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "user.role.sectionEditor"), $this);?>
+</td>
+		<?php $this->assign('editor', $this->_tpl_vars['submission']->getEditor()); ?>
+		<td width="80%" colspan="2" class="data">
+			<?php if ($this->_tpl_vars['editor']): ?>
+				<?php $this->assign('emailString', ($this->_tpl_vars['editor']->getEditorFullName())." <".($this->_tpl_vars['editor']->getEditorEmail()).">"); ?>
+				<?php $this->assign('emailStringEscaped', ((is_array($_tmp=$this->_tpl_vars['emailString'])) ? $this->_run_mod_handler('escape', true, $_tmp, 'url') : smarty_modifier_escape($_tmp, 'url'))); ?>
+				<?php $this->assign('urlEscaped', ((is_array($_tmp=$this->_tpl_vars['currentUrl'])) ? $this->_run_mod_handler('escape', true, $_tmp, 'url') : smarty_modifier_escape($_tmp, 'url'))); ?>
+				<?php $this->assign('subjectEscaped', ((is_array($_tmp=$this->_tpl_vars['submission']->getArticleTitle())) ? $this->_run_mod_handler('escape', true, $_tmp, 'url') : smarty_modifier_escape($_tmp, 'url'))); ?>
+				<?php echo ((is_array($_tmp=$this->_tpl_vars['editor']->getEditorFullName())) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
+ <?php echo $this->_plugins['function']['icon'][0][0]->smartyIcon(array('name' => 'mail','url' => ($this->_tpl_vars['pageUrl'])."/user/email?to[]=".($this->_tpl_vars['emailStringEscaped'])."&amp;redirectUrl=".($this->_tpl_vars['urlEscaped'])."&amp;subject=".($this->_tpl_vars['subjectEscaped'])), $this);?>
+
+                        <?php else: ?>
+                                <?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "common.noneAssigned"), $this);?>
+
+                        <?php endif; ?>
+		</td>
+	</tr>
+	<?php if ($this->_tpl_vars['submission']->getCommentsToEditor()): ?>
+	<tr valign="top">
+		<td width="20%" class="label"><?php echo $this->_plugins['function']['translate'][0][0]->smartyTranslate(array('key' => "article.commentsToEditor"), $this);?>
+</td>
+		<td width="80%" colspan="2" class="data"><?php echo ((is_array($_tmp=((is_array($_tmp=$this->_tpl_vars['submission']->getCommentsToEditor())) ? $this->_run_mod_handler('strip_unsafe_html', true, $_tmp) : $this->_plugins['modifier']['strip_unsafe_html'][0][0]->smartyStripUnsafeHtml($_tmp)))) ? $this->_run_mod_handler('nl2br', true, $_tmp) : smarty_modifier_nl2br($_tmp)); ?>
+</td>
+	</tr>
+	<?php endif; ?>
+</table>

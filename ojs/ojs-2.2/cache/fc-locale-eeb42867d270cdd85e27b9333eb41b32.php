@@ -1,0 +1,17 @@
+<?php return array (
+  'plugins.generic.cmsrss.displayName' => 'CMS RSS Plugin',
+  'plugins.generic.cmsrss.description' => 'This plugin allows for RSS aggregation to be added to CMS pages',
+  'plugins.generic.cmsrss.requirement.cms' => '<strong>The CMS Plugin must be installed and enabled in order to use this plugin.</strong>',
+  'manager.plugins.cmsrss.edit' => 'Edit/Add RSS feeds',
+  'plugins.generic.cmsrss.pagename' => 'Page Name',
+  'plugins.generic.cmsrss.url' => 'Feed URL',
+  'plugins.generic.cmsrss.months' => 'Oldest items (in months). 0 for all available items.',
+  'plugins.generic.cmsrss.aggregate' => 'Combine the feeds for each page and sort by date',
+  'plugins.generic.cmsrss.form.introduction' => '<p>This CMS RSS Plugin enables journal managers to add RSS feeds to the otherwise static pages of the CMS Plugin.</p><p>The Page Name must correspond to the heading of the CMS page (which appears in the table of contents).  You must separate heading names with a ":".  For example: heading1:heading2.</p><p>Feed URL\'s are not validated, so make sure that the URL used here corresponds to the right RSS URL.</p>',
+  'plugins.generic.cmsrss.requiredFields' => 'Every row requires a page name and a feed URL',
+  'plugins.generic.cmsrss.sorting' => 'Rows are sorted by Page Name',
+  'plugins.generic.cmsrss.addUrl' => 'Add Another Feed',
+  'plugins.generic.cmsrss.deleteUrl' => 'Remove Feed',
+  'plugins.generic.cmsrss.postedon' => 'Posted on',
+  'plugins.generic.cmsrss.permalink' => 'Permalink',
+); ?>

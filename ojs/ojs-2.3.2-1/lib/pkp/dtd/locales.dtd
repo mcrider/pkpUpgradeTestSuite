@@ -1,0 +1,18 @@
+<!--
+  * locales.dtd
+  *
+  * Copyright (c) 2000-2009 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * DTD for locale lists.
+  *
+  * $Id: locales.dtd,v 1.4 2009/06/09 00:29:30 asmecher Exp $
+  -->
+
+<!ELEMENT locales (locale+)>
+<!ELEMENT locale EMPTY>
+	<!ATTLIST locale
+		key CDATA #REQUIRED
+		name CDATA #REQUIRED
+		complete (true | false) #IMPLIED
+		stylesheet CDATA #IMPLIED>

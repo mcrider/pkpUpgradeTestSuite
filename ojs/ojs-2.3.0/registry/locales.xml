@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  * locales.xml
+  *
+  * Copyright (c) 2003-2009 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Locales registry file.
+  *
+  * This file lists all locales available to the system.
+  * (i.e., existing under the locales/ directory)
+  *
+  * $Id: locales.xml,v 1.35 2009/09/10 23:15:10 jmacgreg Exp $
+  -->
+
+<!DOCTYPE locales SYSTEM "../lib/pkp/dtd/locales.dtd">
+
+<locales>
+	<locale key="ca_ES" name="Catalan"/>
+	<locale key="cs_CZ" name="Czech"/>
+	<locale key="da_DK" name="Danish"/>
+	<locale key="de_DE" name="Deutsch (Deutschland)"/>
+	<locale key="en_US" name="English"/>
+	<locale key="el_GR" name="Greek"/>
+	<locale key="es_ES" name="Español (España)"/>
+	<locale key="eu_ES" name="Basque (Euskara)"/>
+	<locale key="fa_IR" name="Persian"/>
+	<locale key="fr_CA" name="Français (Canada)"/>
+	<locale key="hr_HR" name="Hrvatski"/>
+	<locale key="it_IT" name="Italiano"/>
+	<locale key="ja_JP" name="日本語"/>
+	<locale key="nl_NL" name="Nederlands"/>
+	<locale key="no_NO" name="Norwegian"/>
+	<locale key="pt_BR" name="Português (Brasil)"/>
+	<locale key="ru_RU" complete="false" name="Russian"/>
+        <locale key="sv_SV" name="Swedish"/>
+	<locale key="tr_TR" name="Türkiye Türkçesi"/>
+	<locale key="vi_VN" name="Tiếng Việt"/>
+	<locale key="zh_TW" name="繁體中文"/>
+</locales>

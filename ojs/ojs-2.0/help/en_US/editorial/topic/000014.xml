@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "../../topic.dtd">
+
+<!--
+  * 000014.xml
+  *
+  * Copyright (c) 2003-2005 The Public Knowledge Project
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Proofreader's Role Index 
+  *
+  * $Id: 000014.xml,v 1.4 2005/04/30 23:52:10 kevin Exp $
+  -->
+
+<topic id="editorial/topic/000014" locale="en_US" title="Proofreader's Role" toc="editorial/toc/000000" subtoc="editorial/toc/000014" key="editorial.proofreadersRole">
+	<section>
+		<![CDATA[<p>The Proofreader receives an email request from the Author or the Section Editor requesting that the Proofreader do a final proofreading of the submission in its Proof Formats prepared for publication. A Layout Editor who is unable to do the Layout, simply responds by email to the Section Editor.</p>]]>	
+	</section>
+</topic>

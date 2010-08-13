@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../locale/locale.dtd">
+
+<!--
+  * locale.xml
+  *
+  * Copyright (c) 2003-2009 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * COinS plugin localization strings for the en_US (U.S. English) locale.
+  *
+  * $Id: locale.xml,v 1.1.2.2 2009/04/08 19:43:15 asmecher Exp $
+  -->
+ 
+<locale name="en_US" full_name="U.S. English">
+	<message key="plugins.generic.coins.displayName">COinSプラグイン</message>
+	<message key="plugins.generic.coins.description">論文ページ（抄録とHTML版）にCOinSを追加して、例えば引用作成ツールが情報を抽出できるようにします。</message>
+</locale>

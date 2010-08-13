@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "../../../topic.dtd">
+
+<!--
+  * 000010.xml
+  *
+  * Copyright (c) 2003-2009 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Author's Role Review Index 
+  *
+  * $Id: 000010.xml,v 1.2.2.1 2009/04/08 19:43:02 asmecher Exp $
+  -->
+
+<topic id="editorial/topic/000010" locale="vi_VN" title="Phản biện" toc="editorial/toc/000009" subtoc="editorial/toc/000010" key="editorial.authorsRole.review">
+	<section>
+		<![CDATA[<p>Tác giả có thể xem được tiến trình của bài mình nộp trong quá trình phản biện, đồng thời có thể tải lên các phiên bản đã sửa theo yêu cầu của BTV chuyên mục phụ trách quá trình phản biện.</p>]]>	
+	</section>
+</topic>

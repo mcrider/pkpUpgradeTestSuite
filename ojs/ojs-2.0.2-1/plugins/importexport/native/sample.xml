@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE issues SYSTEM "native.dtd">
+
+<!--
+  * sample.xml
+  *
+  * Copyright (c) 2003-2005 The Public Knowledge Project
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Sample import document for the OJS 2.x native XML import/export format.
+  *
+  * $Id: sample.xml,v 1.4 2005/08/27 01:29:19 alec Exp $
+  -->
+
+<issues>
+ <issue>
+  <title>Test Issue</title>
+  <access_date>01-01-2001</access_date>
+  <section>
+   <title>Articles</title>
+   <article>
+    <title>Jane Doe's Article</title>
+    <author>
+     <firstname>Jane</firstname>
+     <lastname>Doe</lastname>
+    </author>
+    <htmlgalley>
+     <label>HTML</label>
+     <file>
+      <href src="myfile.html" mime_type="text/html" />
+     </file>
+     <stylesheet>
+      <href src="myfile.xsl" mime_type="text/xsl" />
+     </stylesheet>
+     <image>
+      <embed encoding="base64" filename="myfilename.png" mime_type="application/png">
+BLAH BLAH BLAH
+      </embed>
+     </image>
+     <image>
+      <href src="myimage2.png" mime_type="application/png" />
+     </image>
+    </htmlgalley>
+    <galley>
+     <label>PDF</label>
+     <file>
+      <href src="mygalley.pdf" mime_type="application/pdf" />
+     </file>
+    </galley>
+   </article>
+  </section>
+ </issue>
+ <issue>
+  <title>Existing journal Issue</title>
+  <open_access/>
+  <section>
+   <title>Articles</title>
+   <article>
+    <title>John Doe's Article</title>
+    <author>
+     <firstname>John</firstname>
+     <lastname>Doe</lastname>
+    </author>
+   </article>
+  </section>
+ </issue>
+</issues>

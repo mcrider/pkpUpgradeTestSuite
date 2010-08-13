@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "../../../topic.dtd">
+
+<!--
+  * 000010.xml
+  *
+  * Copyright (c) 2003-2006 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Author's Role Review Index 
+  * Thanks to AePIC Team CILEA.
+  *
+  * $Id: 000010.xml,v 1.3 2006/06/12 23:26:02 alec Exp $
+  -->
+
+<topic id="editorial/topic/000010" locale="it_IT" title="Review" toc="editorial/toc/000009" subtoc="editorial/toc/000010" key="editorial.authorsRole.review">
+	<section>
+		<![CDATA[<p>L'autore pu&#x00F2; osservare il progresso della submission lungo il processo di revisione, tanto quanto ricaricare le versioni revisionate, quando richiesto dal curatore di sezione che supervisiona il processo di revisione.</p>]]>	
+	</section>
+</topic>

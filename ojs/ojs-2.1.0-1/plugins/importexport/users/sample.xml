@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE users SYSTEM "users.dtd">
+
+<!--
+  * sample.xml
+  *
+  * Copyright (c) 2003-2005 The Public Knowledge Project
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Sample user import data.
+  *
+  * $Id: sample.xml,v 1.2 2005/08/27 00:54:47 alec Exp $
+  -->
+
+<users>
+        <user>
+                <username>usertwo</username>
+                <first_name>UserTwo</first_name>
+                <last_name>LastName</last_name>
+                <email>him3@there.com</email>
+        </user>
+</users>

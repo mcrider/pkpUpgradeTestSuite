@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "../../../topic.dtd">
+
+<!--
+  * 000042.xml
+  *
+  * Copyright (c) 2003-2006 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Proofreader's Role - Submissions
+  *
+  * $Id: 000042.xml,v 1.6 2006/06/12 23:25:58 alec Exp $
+  -->
+
+<topic id="editorial/topic/000042" locale="en_US" title="Submissions" toc="editorial/toc/000014" key="editorial.proofreadersRole.submissions">
+	<section>
+		<![CDATA[<p>Once the Proofreader logs in, clicking on the Proofreader link on the User Home page leads to the Submissions queue. This queue lists works for which they have been asked to do the layout. Access is also provided to submissions which they have completed in the past. The Proofreader clicks on the work's title which leads to the Proofreader's Proofreading page.</p>]]>	
+	</section>
+</topic>

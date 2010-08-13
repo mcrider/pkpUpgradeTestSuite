@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../locale/locale.dtd">
+
+<!--
+  * locale.xml
+  *
+  * Copyright (c) 2003-2009 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the nl_NL (Nederlands) locale.
+  *
+  * Translated by Martin van Luijt, m.van.luijt 'at' hccnet.nl
+  *
+  * $Id: locale.xml,v 1.1.2.2 2009/04/08 20:32:37 asmecher Exp $
+  -->
+ 
+<locale name="nl_NL" full_name="Nederlands">
+	<message key="plugins.block.developedBy.displayName">"Ontwikkeld door" blok</message>
+	<message key="plugins.block.developedBy.description">Deze plugin verzorgt de "Ontwikkeld door" link in de sidebar.</message>
+</locale>

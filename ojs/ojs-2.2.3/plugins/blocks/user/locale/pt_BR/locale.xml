@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../locale/locale.dtd">
+
+<!--
+  * locale.xml
+  *
+  * Copyright (c) 2003-2009 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the pt_BR (Português (Brasil)) locale.
+  *
+  * $Id: locale.xml,v 1.4.2.1 2009/04/08 19:43:11 asmecher Exp $
+  -->
+ 
+<locale name="pt_BR" full_name="Português do Brasil">
+	<message key="plugins.block.user.displayName">Bloco Usuário</message>
+	<message key="plugins.block.user.description">Este plugin oferece ferramentas de usuário na barra lateral (ex.: logar, sair do sistema, acesso ao perfil, etc).</message>
+	<message key="plugins.block.user.loggedInAs">Logado como...</message>
+	<message key="plugins.block.user.myJournals">Meus periódicos</message>
+	<message key="plugins.block.user.myProfile">Perfil</message>
+	<message key="plugins.block.user.logout">Sair do Sistema</message>
+	<message key="plugins.block.user.signOutAsUser">Sair do Sistema como usuário</message>
+	<message key="plugins.block.user.rememberMe">Lembrar usuário</message>
+</locale>

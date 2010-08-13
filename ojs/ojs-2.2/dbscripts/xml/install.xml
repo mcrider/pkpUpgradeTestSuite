@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE install SYSTEM "dtd/install.dtd">
+
+<!--
+  * install.xml
+  *
+  * Copyright (c) 2003-2007 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Installation descriptor file.
+  *
+  * $Id: install.xml,v 1.16 2007/04/10 20:57:24 asmecher Exp $
+  -->
+
+<install version="2.2.0.0">
+	<code function="createDirectories"/>
+	<code function="createDatabase"/>
+	<schema file="ojs_schema.xml"/>
+	<data file="data/email_templates.xml"/>
+	<data file="data/locale/{$installedLocale}/email_templates_data.xml"/>
+	<code function="createData"/>
+	<code function="createConfig"/>
+</install>

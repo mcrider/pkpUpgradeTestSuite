@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../locale/locale.dtd">
+
+<!--
+  * locale.xml
+  *
+  * Copyright (c) 2003-2007 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the it_IT (Italiano) locale.
+  *
+  * $Id: locale.xml,v 1.2 2007/12/10 19:23:50 asmecher Exp $
+  -->
+ 
+<locale name="it_IT" full_name="Italiano">
+	<message key="plugins.block.fontSize.displayName">Modulo della dimensione del carattere</message>
+	<message key="plugins.block.fontSize.description">Questo plugin inserisce nel menu laterale un misuratore per la dimensione del carattere.</message>
+	<message key="plugins.block.fontSize.title">Dimensione del carattere</message>
+	<message key="plugins.block.fontSize.small.alt">Piccolo</message>
+	<message key="plugins.block.fontSize.medium.alt">Medio</message>
+	<message key="plugins.block.fontSize.large.alt">Grande</message>
+</locale>

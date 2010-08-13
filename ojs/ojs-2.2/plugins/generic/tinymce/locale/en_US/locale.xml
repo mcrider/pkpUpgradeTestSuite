@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../locale/locale.dtd">
+
+<!--
+  * locale.xml
+  *
+  * Copyright (c) 2003-2007 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the en_US (U.S. English) locale.
+  *
+  * $Id: locale.xml,v 1.4 2007/04/10 20:57:42 asmecher Exp $
+  -->
+ 
+<locale name="en_US" full_name="U.S. English">
+	<message key="plugins.generic.tinymce.name">TinyMCE Plugin</message>
+	<message key="plugins.generic.tinymce.description"><![CDATA[This plugin enables WYSIWYG editing of OJS textareas using the <a href="http://tinymce.moxiecode.com" target="_new">TinyMCE</a> content editor.]]></message>
+	<message key="plugins.generic.tinymce.descriptionDisabled"><![CDATA[This plugin enables WYSIWYG editing of OJS textareas using the <a href="http://tinymce.moxiecode.com" target="_new">TinyMCE</a> content editor. <strong>TinyMCE is not currently installed; please install it in {$tinyMcePath}.</strong>]]></message>
+
+	<message key="plugins.generic.tinymce.settings">Settings</message>
+</locale>

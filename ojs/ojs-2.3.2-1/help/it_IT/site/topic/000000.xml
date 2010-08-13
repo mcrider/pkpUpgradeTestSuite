@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "../../../../lib/pkp/dtd/helpTopic.dtd">
+
+<!--
+  * 000000.xml
+  *
+  * Copyright (c) 2003-2009 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Site Administration Main 
+  * Thanks to AePIC Team CILEA.
+  *
+  * $Id$
+  -->
+
+<topic id="site/topic/000000" locale="it_IT" title="Site Administration" toc="index/toc/000000" subtoc="site/toc/000000" key="site.index">
+	<section>
+		<![CDATA[<p>Questo sistema di gestione e pubblicazione dijournal &#x00E8; costruito per essere installato e amministrato da un local web server. Una volta installato, l'amministratore del sito pu&#x00F2; usarlo per generare tanti siti di journal quanti ne sono richiesti, e supervisione l'amministrazione di ogni sito del journal che &#x00E8, stato creato.</p>]]>	
+	</section>
+</topic>

@@ -1,0 +1,5 @@
+This repository contains all of our post-2.0 releases of OJS (and soon, all OxS apps) to perform automated upgrade tests on.
+
+To begin, configure the upgradeTest.sh file in the ojs/ directory and change the SQL_USERNAME and SQL_PASSWORD variables to fit your configuration.  Also, make sure an 'upgrade_db' exists.
+
+Then, execute 'bash upgradeTest.sh <from_version> [<to_versions>] to perform the tests.  To versions can take a set of any number of existing versions, or can be left blank to test all versions.

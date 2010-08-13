@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "../../../../lib/pkp/dtd/helpTopic.dtd">
+
+<!--
+  * 000042.xml
+  *
+  * Copyright (c) 2003-2009 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Proofreader's Role - Submissions
+  * Thanks to AePIC Team CILEA.
+  *
+  * $Id$
+  -->
+
+<topic id="editorial/topic/000042" locale="it_IT" title="Submissions" toc="editorial/toc/000014" key="editorial.proofreadersRole.submissions">
+	<section>
+		<![CDATA[<p>Non appena il correttore di bozze effettua il logs in, clicando sul link correttore di bozze nella Home page utente si va all coda delle submission. Questa coda elenca i lavori richiesti per il layout. Fornisce, inoltre, accesso a quelle submission completate in passato. Il correttore di bozze clica sul titolo dei lavori. questo conduce alla pagina di correzione del correttore di bozze.</p>]]>	
+	</section>
+</topic>

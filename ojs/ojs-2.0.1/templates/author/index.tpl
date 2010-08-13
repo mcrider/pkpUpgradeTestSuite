@@ -1,0 +1,28 @@
+{**
+ * index.tpl
+ *
+ * Copyright (c) 2003-2004 The Public Knowledge Project
+ * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ *
+ * Journal author index.
+ *
+ * $Id: index.tpl,v 1.10 2005/02/26 23:20:42 kevin Exp $
+ *}
+
+{assign var="pageTitle" value="common.queue.long.$pageToDisplay"}
+{include file="common/header.tpl"}
+
+<ul class="menu">
+	<li{if ($pageToDisplay == "active")} class="current"{/if}><a href="{$pageUrl}/author/index/active">{translate key="common.queue.short.active"}</a></li>
+	<li{if ($pageToDisplay == "completed")} class="current"{/if}><a href="{$pageUrl}/author/index/completed">{translate key="common.queue.short.completed"}</a></li>
+</ul>
+
+<br />
+
+{include file="author/$pageToDisplay.tpl"}
+
+<p>{translate key="author.submit.startHere"}<br/>
+<a href="{$pageUrl}/author/submit" class="action">{translate key="author.submit.startHereLink"}</a><br />
+</p>
+
+{include file="common/footer.tpl"}

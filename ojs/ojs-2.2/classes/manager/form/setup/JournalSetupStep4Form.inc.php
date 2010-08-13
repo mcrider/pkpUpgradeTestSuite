@@ -1,0 +1,77 @@
+<?php
+
+/**
+ * @file JournalSetupStep4Form.inc.php
+ *
+ * Copyright (c) 2003-2007 John Willinsky
+ * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ *
+ * @package manager.form.setup
+ * @class JournalSetupStep4Form
+ *
+ * Form for Step 4 of journal setup.
+ *
+ * $Id: JournalSetupStep4Form.inc.php,v 1.20 2007/10/01 19:51:26 asmecher Exp $
+ */
+
+import("manager.form.setup.JournalSetupForm");
+
+class JournalSetupStep4Form extends JournalSetupForm {
+	/**
+	 * Constructor.
+	 */
+	function JournalSetupStep4Form() {
+		parent::JournalSetupForm(
+			4,
+			array(
+				'disableUserReg' => 'bool',
+				'allowRegReader' => 'bool',
+				'allowRegAuthor' => 'bool',
+				'allowRegReviewer' => 'bool',
+				'restrictSiteAccess' => 'bool',
+				'restrictArticleAccess' => 'bool',
+				'articleEventLog' => 'bool',
+				'articleEmailLog' => 'bool',
+				'publicationFormatVolume' => 'bool',
+				'publicationFormatNumber' => 'bool',
+				'publicationFormatYear' => 'bool',
+				'publicationFormatTitle' => 'bool',
+				'initialVolume' => 'int',
+				'initialNumber' => 'int',
+				'initialYear' => 'int',
+				'pubFreqPolicy' => 'string',
+				'useCopyeditors' => 'bool',
+				'copyeditInstructions' => 'string',
+				'useLayoutEditors' => 'bool',
+				'layoutInstructions' => 'string',
+				'provideRefLinkInstructions' => 'bool',
+				'refLinkInstructions' => 'string',
+				'useProofreaders' => 'bool',
+				'proofInstructions' => 'string',
+				'enableSubscriptions' => 'bool',
+				'showGalleyLinks' => 'bool',
+				'openAccessPolicy' => 'string',
+				'enableAnnouncements' => 'bool',
+				'enableAnnouncementsHomepage' => 'bool',
+				'numAnnouncementsHomepage' => 'int',
+				'announcementsIntroduction' => 'string',
+				'volumePerYear' => 'int',
+				'issuePerVolume' => 'int',
+				'enablePublicIssueId' => 'bool',
+				'enablePublicArticleId' => 'bool',
+				'enablePublicSuppFileId' => 'bool',
+				'enablePageNumber' => 'bool'
+			)
+		);
+	}
+
+	/**
+	 * Get the list of field names for which localized settings are used.
+	 * @return array
+	 */
+	function getLocaleFieldNames() {
+		return array('pubFreqPolicy', 'copyeditInstructions', 'layoutInstructions', 'refLinkInstructions', 'proofInstructions', 'openAccessPolicy', 'announcementsIntroduction');
+	}
+}
+
+?>

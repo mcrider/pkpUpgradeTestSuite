@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE toc SYSTEM "../../../toc.dtd">
+
+<!--
+  * 000000.xml
+  *
+  * Copyright (c) 2003-2008 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Table of contents for Introduction to OJS. 
+  *
+  * $Id: 000000.xml,v 1.2 2008/06/13 20:16:44 asmecher Exp $
+  -->
+
+<toc id="intro/toc/000000" locale="vi_VN" title="Giới thiệu phần mềm OJS" parent_topic="intro/topic/000000">
+	<topic id="intro/topic/000001" title="Câu hỏi thường gặp" />
+	<breadcrumb url="intro/topic/000000" title="Giới thiệu phần mềm OJS" />
+</toc>

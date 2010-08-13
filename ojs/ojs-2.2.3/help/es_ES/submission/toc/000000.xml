@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE toc SYSTEM "../../../toc.dtd">
+
+<!--
+  * 000000.xml
+  *
+  * Copyright (c) 2003-2009 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Tabla de Contenidos del Proceso de Envíos del Autor. 
+  *
+  * Translated by Juan Arias, Corporación Parque Tecnológico de Mérida: juanarias@ula.ve.
+  *
+  * $Id: 000000.xml,v 1.1.2.2 2009/04/08 20:32:37 asmecher Exp $
+  -->
+
+<toc id="submission/toc/000000" locale="en_US" title="Proceso de Envíos" parent_topic="submission/topic/000000">
+	<topic id="submission/topic/000001" title="Guías del Autor" />
+	<topic id="submission/topic/000002" title="Requerimientos de los Envíos" />
+	<topic id="submission/topic/000003" title="Indexación y Metadatos" />
+	<topic id="submission/topic/000004" title="Archivos suplementarios" />
+	<breadcrumb url="submission/topic/000000" title="Proceso de Envíos" />
+</toc>

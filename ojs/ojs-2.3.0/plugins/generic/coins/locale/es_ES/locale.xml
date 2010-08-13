@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../lib/pkp/dtd/locale.dtd">
+
+<!--
+  * locale.xml
+  *
+  * Copyright (c) 2003-2009 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * COinS plugin localization strings for the es_ES (Español (España)) locale.
+  *
+  * $Id: locale.xml,v 1.5 2009/10/07 22:09:51 asmecher Exp $
+  -->
+ 
+<locale name="es_ES" full_name="Español (España)">
+	<message key="plugins.generic.coins.displayName">Plugin COinS</message>
+	<message key="plugins.generic.coins.description">El plugin COinS añade un descriptor OpenURL a páginas del artículo (resumen y HTML) que puede ser usado por ejemplo para la extracción a herramientas de citaciones.</message>
+	<message key="plugins.generic.coins.enabled">El plugin COinS ha sido habilitado.</message>
+	<message key="plugins.generic.coins.disabled">El plugin COinS ha sido deshabilitado.</message>
+</locale>

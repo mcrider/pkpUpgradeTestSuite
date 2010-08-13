@@ -1,0 +1,14 @@
+/**
+ * fontLarge.css
+ *
+ * Copyright (c) 2003-2009 John Willinsky
+ * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ *
+ * Site-wide shared stylesheet for large fonts.
+ *
+ * $Id: fontLarge.css,v 1.2 2009/04/08 19:54:50 asmecher Exp $
+ */
+
+body {
+	font-size: 1.2em;
+}

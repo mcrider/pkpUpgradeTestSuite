@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "../../../topic.dtd">
+
+<!--
+  * 000039.xml
+  *
+  * Copyright (c) 2003-2006 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Layout Editor's Role - Submissions
+  *
+  * $Id: 000039.xml,v 1.6 2006/06/12 23:25:58 alec Exp $
+  -->
+
+<topic id="editorial/topic/000039" locale="en_US" title="Submissions" toc="editorial/toc/000013" key="editorial.layoutEditorsRole.submissions">
+	<section>
+		<![CDATA[<p>Once the Layout Editor logs in, clicking on the Layout Editor link on the User Home page leads to the Submissions queue.  This queue lists those works for which they have been asked to do the layout. Access is also provided to those submissions which they have completed in the past.  The Layout Editor clicks on the work's title which leads to the Layout Editor's Layout page for that submission.</p>]]>	
+	</section>
+</topic>

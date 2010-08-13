@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE data SYSTEM "../dtd/xmldata.dtd">
+
+<!--
+  * 2.2.0_usersettings.xml
+  *
+  * Copyright (c) 2003-2007 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * 2.2.0 database updates XML file; rename the user settings table.
+  *
+  * $Id: 2.2.0_usersettings.xml,v 1.2 2007/10/24 00:47:28 asmecher Exp $
+  -->
+
+<data>
+	<!-- Bug #2961: Localization overhaul -->
+	<sql>
+		<rename table="user_settings" to="user_settings_old" />
+		<!-- PostgreSQL leaves index names unchanged; delete it,
+		     so that it doesn't conflict with the one we'll create
+		     for the new table -->
+		<query driver="postgres7">
+			DROP INDEX user_settings_user_id
+		</query>
+		<query driver="postgres7">
+			DROP INDEX user_settings_pkey
+		</query>
+	</sql>
+</data>

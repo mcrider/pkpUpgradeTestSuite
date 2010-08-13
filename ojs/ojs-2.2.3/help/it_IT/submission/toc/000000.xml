@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE toc SYSTEM "../../../toc.dtd">
+
+<!--
+  * 000000.xml
+  *
+  * Copyright (c) 2003-2009 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * table of contents for Author Submission Process. 
+  * Thanks to AePIC Team CILEA.
+  *
+  * $Id: 000000.xml,v 1.6.2.1 2009/04/08 19:42:58 asmecher Exp $
+  -->
+
+<toc id="submission/toc/000000" locale="it_IT" title="Submission Process" parent_topic="submission/topic/000000">
+	<topic id="submission/topic/000001" title="Author Guidelines" />
+	<topic id="submission/topic/000002" title="Submission Requirements" />
+	<topic id="submission/topic/000003" title="Indexing and Metadata" />
+	<topic id="submission/topic/000004" title="Supplementary Files" />
+	<breadcrumb url="submission/topic/000000" title="Submission Process" />
+</toc>

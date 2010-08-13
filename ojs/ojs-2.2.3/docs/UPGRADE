@@ -1,0 +1,253 @@
+Upgrading an OJS Installation
+-----------------------------
+
+Note: backing up your current data files and database is strongly recommended
+prior to upgrading OJS.
+
+If you are using PHP Safe Mode, please ensure that the max_execution_time
+directive in your php.ini configuration file is set to a high limit. If this
+or any other time limit (e.g. Apache's "Timeout" directive) is reached and
+the upgrade process is interrupted, manual intervention will be required.
+
+
+======================
+Upgrading from OJS 2.x
+======================
+
+Upgrading to the latest version of OJS involves two steps:
+
+    - Obtaining the latest OJS code
+    - Upgrading the OJS database
+
+It is highly recommended that you also review the release notes (docs/RELEASE)
+and other documentation in the docs directory before performing an upgrade.
+
+
+Upgrade Notes
+-------------
+
+If you are upgrading from a version prior to 2.1, the caching directories for
+help, locale data, database queries, templates, etc. have been moved into a
+single "cache" directory. If you are upgrading from a prior release of OJS 2.x
+to OJS 2.1, you will need to ensure that the new cache directory exists and can
+be written by the web server. With-out doing this, your installation may work,
+but it may perform poorly. See docs/README, under Installation, for a list of
+directories that must be writeable by the web server.
+
+
+Obtaining the latest OJS code
+-----------------------------
+
+The OJS source code is available in three forms: as patches against older
+releases of OJS, from an anonymous CVS repository, and as a complete
+stand-alone package.
+
+Patching or updating from CVS are the recommended approach if you have made
+local modifications to the system.
+
+1. Patch
+
+Patch files for older releases of OJS can be downloaded from the OJS web site.
+
+To update by patching, download the appropriate patch file for your current
+version of OJS and run the following command from your OJS directory:
+
+    $ patch -p1 < PATCH_FILE
+
+"PATCH_FILE" should be replaced with the path to the decompressed patch file
+that was downloaded, e.g. "ojs-2.0_to_2.0.1.patch".
+
+Alternatively, OJS 2.0.1 and later provide a command-line tool to automatically
+download and apply the appropriate patch to upgrade to the latest release. To
+use this tool run the following command from your OJS directory:
+
+    $ php tools/upgrade.php patch
+
+Note that this will require the GNU patch tool to be installed. GNU patch is
+included in most *NIX distributions, and is available for Windows and Solaris
+as a download. Windows users may need to work around a patch bug by converting
+the line-endings in the patch file from UNIX to DOS; to do this, open the patch
+file in Notepad and save it again.
+
+
+2. CVS
+
+If your instance of OJS was checked out from the PKP anonymous CVS repository
+(see docs/README-CVS), you can update the OJS code using a CVS client.
+
+To update the OJS code from a CVS check-out, run the following command from
+your OJS directory:
+
+    $ cvs update -r TAG
+
+"TAG" should be replaced with the CVS tag corresponding to the new release.
+OJS release version tags are of the form "ojs-MAJOR_MINOR_REVSION-BUILD".
+For example, the tag for the initial release of OJS 2.1.0 is "ojs-2_1_0-0".
+
+Consult the README of the latest OJS package or the OJS web site for the
+tag corresponding to the latest available OJS release.
+
+Note that attempting to update to an unreleased version (e.g., using the HEAD
+tag to obtain the bleeding-edge OJS code) is not recommended for anyone other
+than OJS or third-party developers; using experimental code on a production
+deployment is strongly discouraged and will not be supported in any way by
+the OJS team.
+
+
+3. Full Package
+
+It is also possible to upgrade by downloading the complete package for the
+latest release of OJS:
+
+    - Download and decompress the package from the OJS web site
+    - Make a copy of the config.inc.php provided in the new package
+    - Move or copy the following files and directories from your current OJS
+      installation:
+        - config.inc.php
+        - public/
+        - Your uploaded files directory ("files_dir" in config.inc.php), if it
+          resides within your OJS directory
+    - Replace the current OJS directory with the new OJS directory, moving the
+      old one to a safe location as a backup
+    - Be sure to review the Configuration Changes section of the release notes
+      in docs/release-notes/README-(version) for all versions between your
+      original version and the new version. You may need to manually add
+      new items to your config.inc.php file.
+
+
+
+Upgrading the OJS database
+--------------------------
+
+After obtaining the latest OJS code, an additional script must be run to
+complete the upgrade process by upgrading the OJS database and potentially
+executing additional upgrade code.
+
+This script can be executed from the command-line or via the OJS web interface.
+
+1. Command-line
+
+If you have the CLI version of PHP installed (e.g., /usr/bin/php), you can
+upgrade the database by running the following command from the OJS directory:
+
+    $ php tools/upgrade.php upgrade
+
+
+2. Web
+
+If you do not have the PHP CLI installed, you can also upgrade by running a
+web-based script. To do so:
+
+    - Edit config.inc.php and change "installed = On" to "installed = Off"
+    - Open a web browser to your OJS site; you should be redirected to the
+      installation and upgrade page
+    - Select the "Upgrade" link and follow the on-screen instructions
+    - Re-edit config.inc.php and change "installed = Off" back to
+       "installed = On"
+
+
+
+
+======================
+Migrating from OJS 1.x
+======================
+
+OJS 2 represents a complete re-design and re-implementation of the Open Journal 
+Systems project, and as such, it is not possible to directly upgrade a 1.x
+system to 2.x.
+
+Instead, a migration utility has been provided to allow content from OJS 1.x to
+be imported into an installed 2.x system -- including most journal settings and
+all user, issue, and article data.
+
+Migration is only supported for OJS 1.1.5 and later. Older releases of OJS 1.x
+must first be upgraded to a newer release of 1.x.
+
+To migrate data from OJS 1.x to a 2.x system:
+
+    - Install the latest release of OJS 2 onto the same server as the current
+      OJS 1 installation
+    - Run the migration command-line or web-based utility to import data
+
+
+The migration utility can be used to either create a new OJS 2 journal with all
+settings and data from an OJS 1 journal, or to import just users, issues, and
+articles into an already existing OJS 2 journal.
+
+Note that, depending on the amount of content in the journal to be imported, it
+may take a long time for the migration utility to complete -- especially if your
+system is configured to index full-text files.
+
+1. Using the migration command-line tool:
+
+    $ php tools/migrate.php [journal_path] [ojs1_path] [options]
+    
+   Options:
+   
+    journal_path  Journal path to create (E.g., "ojs")
+                  If path already exists, all content except journal settings
+                  will be imported into the existing journal
+                  
+    ojs1_path     Complete local filesystem path to the OJS 1 installation
+                  (E.g., "/var/www/ojs")
+                  
+    options       importSubscriptions - import subscription type and subscriber
+                  data
+                  verbose - print additional debugging information
+                  
+   Examples:
+   
+    To import all data from "/var/www/ojs" into a new journal "import1":
+
+        $ php tools/migrate.php import1 /var/www/ojs importSubscriptions
+    
+    To import just users, issues, and articles from "/var/www/ojs" into an
+    existing journal "import2":     
+
+        $ php tools/migrate.php import2 /var/www/ojs
+   
+   WARNING: If the CLI tool is executed as a different user than the Apache
+   user, you will need to chown or chmod the public and uploaded files
+   directories before (for the user running the tool) and afterwards (to
+   Apache) to set the correct ownership/permissions.
+
+
+2. Using the migration web-based tool:
+
+   The web-based migration utility can be found under:
+   
+        Site Administration > Hosted Journals > Import From OJS 1
+
+   The web-based tool is used nearly identically to the CLI tool.
+
+
+Additional notes regarding migration:
+
+    - After using the migration tool, edit and save the hosted journal settings
+      under Site Administration, and proceed through and complete all Journal
+      Setup steps under Journal Management -- there are a number of new and
+      modified settings in OJS 2 compared to OJS 1
+    - Any number of OJS 1.x journals can be imported into a single OJS 2
+      instance (OJS 2 is designed as a multiple journal system)
+    - OJS 2 requires both user usernames and email addresses to be unique (OJS
+      1 did not enforce the latter restriction):
+        - If a user already exists with the same username as an imported
+          user, all imported data will be associated with the existing user
+        - If a user already exists with the same email address as an
+          imported user, the email address of the imported user will be
+          prefixed with "ojs-<username>+" to ensure uniqueness -- such users
+          can then be updated manually post-migration
+    - Modified email templates and RST versions are not migrated due to the
+      numerous revisions and enhancements to these components in OJS 2
+    - Migrated subscription types are given a 12-month duration and public
+      visibility by default -- these settings can be modified post-migration
+
+
+OJS 1.x features that are currently not supported in 2.x:
+
+    - Distinct "Book/Media Review" listings are not currently and are not
+      likely to ever be supported
+
+If you encounter DB errors (e.g. "DB Error: Table 'journals' doesn't exist"),
+you may need to temporarily remove the database connection code from the bottom
+of include/db.php in the OJS1 installation.

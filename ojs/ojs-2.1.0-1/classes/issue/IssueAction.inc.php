@@ -1,0 +1,111 @@
+<?php
+
+/**
+ * IssueAction.inc.php
+ *
+ * Copyright (c) 2003-2004 The Public Knowledge Project
+ * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ *
+ * @package issue
+ *
+ * IssueAction class.
+ *
+ * $Id: IssueAction.inc.php,v 1.12 2006/01/17 19:57:25 alec Exp $
+ */
+
+class IssueAction {
+
+	/**
+	 * Constructor.
+	 */
+	function IssueAction() {
+	}
+	
+	/**
+	 * Actions.
+	 */
+	 
+	/**
+	 * Smarty usage: {print_issue_id articleId="$articleId"}
+	 *
+	 * Custom Smarty function for printing the issue id
+	 * @return string
+	 */
+	function smartyPrintIssueId($params, &$smarty) {
+		if (isset($params) && !empty($params)) {
+			if (isset($params['articleId'])) {
+				$issueDao = &DAORegistry::getDAO('IssueDAO');
+				$issue = &$issueDao->getIssueByArticleId($params['articleId']);
+				if ($issue != null) {
+					return $issue->getIssueIdentification();
+				}
+			}
+		}
+	}
+
+	/**
+	 * Checks if subscription is required for viewing the issue
+	 * @param $issue
+	 * @return bool
+	 */
+	function subscriptionRequired(&$issue) {
+		$currentJournal =& Request::getJournal();
+		if (!$currentJournal || $currentJournal->getJournalId() !== $issue->getJournalId()) {
+			$journalDao = &DAORegistry::getDAO('JournalDAO');
+			$journal =& $journalDao->getJournal($issue->getJournalId());
+		} else {
+			$journal =& $currentJournal;
+		}
+
+		$result = $journal->getSetting('enableSubscriptions') && ($issue->getAccessStatus() == SUBSCRIPTION && strtotime($issue->getOpenAccessDate()) > time());
+		HookRegistry::call('IssueAction::subscriptionRequired', array(&$journal, &$issue, &$result));
+		return $result;
+	}
+
+	/**
+	 * Checks if user has subscription
+	 * @return bool
+	 */
+	function subscribedUser(&$journal) {
+		$user = &Request::getUser();
+		$subscriptionDao = &DAORegistry::getDAO('SubscriptionDAO');
+		$result = false;
+		if (isset($user) && isset($journal)) {
+			// If the user is a journal manager, editor, section editor,
+			// layout editor, copyeditor, or proofreader, it is assumed
+			// that they are allowed to view the journal as a subscriber.
+			$roleDao = &DAORegistry::getDAO('RoleDAO');
+			$subscriptionAssumedRoles = array(
+				ROLE_ID_JOURNAL_MANAGER,
+				ROLE_ID_EDITOR,
+				ROLE_ID_SECTION_EDITOR,
+				ROLE_ID_LAYOUT_EDITOR,
+				ROLE_ID_COPYEDITOR,
+				ROLE_ID_PROOFREADER,
+				ROLE_ID_SUBSCRIPTION_MANAGER
+			);
+			$roles = &$roleDao->getRolesByUserId($user->getUserId(), $journal->getJournalId());
+			foreach ($roles as $role) {
+				if (in_array($role->getRoleId(), $subscriptionAssumedRoles)) return true;
+			}
+
+			$result = $subscriptionDao->isValidSubscription(null, null, $user->getUserId(), $journal->getJournalId());
+		}
+		HookRegistry::call('IssueAction::subscribedUser', array(&$journal, &$result));
+		return $result;
+	}
+	
+	/**
+	 * Checks if remote client domain or ip is allowed
+	 * @return bool
+	 */
+	function subscribedDomain(&$journal) {
+		$subscriptionDao = &DAORegistry::getDAO('SubscriptionDAO');
+		$result = $subscriptionDao->isValidSubscription(Request::getRemoteDomain(), Request::getRemoteAddr(), null, $journal->getJournalId());
+		HookRegistry::call('IssueAction::subscribedDomain', array(&$journal, &$result));
+		return $result;
+	}
+
+}
+
+?>

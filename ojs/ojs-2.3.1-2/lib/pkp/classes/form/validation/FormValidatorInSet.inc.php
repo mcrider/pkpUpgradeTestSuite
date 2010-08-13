@@ -1,0 +1,45 @@
+<?php
+
+/**
+ * @file classes/form/validation/FormValidatorInSet.inc.php
+ *
+ * Copyright (c) 2000-2009 John Willinsky
+ * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ *
+ * @class FormValidatorInSet
+ * @ingroup form_validation
+ *
+ * @brief Form validation check that checks if value is within a certain set.
+ */
+
+// $Id: FormValidatorInSet.inc.php,v 1.3 2009/04/08 21:34:54 asmecher Exp $
+
+
+import('form.validation.FormValidator');
+
+class FormValidatorInSet extends FormValidator {
+
+	/**  Array of all values accepted as valid */
+	var $acceptedValues;
+
+	/**
+	 * Constructor.
+	 * @see FormValidator::FormValidator()
+	 * @param $acceptedValues array all possible accepted values
+	 */
+	function FormValidatorInSet(&$form, $field, $type, $message, $acceptedValues) {
+		parent::FormValidator($form, $field, $type, $message);
+		$this->acceptedValues = $acceptedValues;
+	}
+
+	/**
+	 * Check if field value is valid.
+	 * Value is valid if it is empty and optional or is in the set of accepted values.
+	 * @return boolean
+	 */
+	function isValid() {
+		return $this->isEmptyAndOptional() || in_array($this->form->getData($this->field), $this->acceptedValues);
+	}
+}
+
+?>

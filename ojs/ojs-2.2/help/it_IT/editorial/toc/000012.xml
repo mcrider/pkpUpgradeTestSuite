@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE toc SYSTEM "../../../toc.dtd">
+
+<!--
+  * 000012.xml
+  *
+  * Copyright (c) 2003-2007 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * table of contents for Editorial Process - Copyeditor's Role
+  * Thanks to AePIC Team CILEA.
+  *
+  * $Id: 000012.xml,v 1.5 2007/10/23 20:30:53 asmecher Exp $
+  -->
+
+<toc id="editorial/toc/000012" locale="it_IT" title="Copyeditor's Role" parent_topic="editorial/topic/000012">
+	<topic id="editorial/topic/000037" title="Submissions" />
+	<topic id="editorial/topic/000038" title="Copyediting" />
+
+	<breadcrumb url="editorial/topic/000000" title="Editorial Process" />
+	<breadcrumb url="editorial/topic/000012" title="Copyeditor's Role" />
+</toc>

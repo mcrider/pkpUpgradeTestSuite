@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "../../../topic.dtd">
+
+<!--
+  * 000003.xml
+  *
+  * Copyright (c) 2003-2005 The Public Knowledge Project
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * User Interface - Register and Profile
+  *
+  * $Id: 000003.xml,v 1.7 2005/08/27 00:54:47 alec Exp $
+  -->
+
+<topic id="user/topic/000003" locale="en_US" title="Register and Profile" toc="user/toc/000000" key="user.registerAndProfile">
+	<section>
+		<![CDATA[<p>The journal uses a registration system for all users involved in the editorial and publishing process. The journal's Privacy Policy applies to all registered users. Each registered user has a Profile, which can be edited or added after the user is logged in to the journal. The link for the Profile is found in the right-hand margin under User and on the User Home page.</p>
+
+<p>For all users, there is an email update option, which results in the user being notified by email of each new issue's Table of Contents. For journals operating in more than one language, Reviewers can indicate in their Profile the languages in which they are comfortable reviewing submissions.</p>]]>	
+	</section>
+</topic>

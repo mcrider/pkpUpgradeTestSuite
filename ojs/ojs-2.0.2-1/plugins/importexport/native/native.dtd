@@ -1,0 +1,130 @@
+<!--
+  * native.dtd
+  *
+  * Copyright (c) 2003-2005 The Public Knowledge Project
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * DTD for native XML import/export.
+  *
+  * $Id: native.dtd,v 1.9 2005/07/14 02:13:13 alec Exp $
+  -->
+
+<!--
+  * BATCH IMPORTING USING OJS 2.x
+  *  OJS 2.x supports XML import/export using this plugin for a variety of
+  *  base elements:
+  *   - article / articles
+  *   - issue / issues
+  *  Be sure to define the document type appropriately using <!DOCTYPE ...>.
+  *
+  * Conventions:
+  *  - Dates should be specified as YYYY-MM-DD
+  -->
+
+<!-- Top-level collection containers for batch importing -->
+<!ELEMENT issues (issue+)>
+<!ELEMENT articles (article+)>
+
+<!-- Generic elements -->
+<!ELEMENT href EMPTY>
+	<!ATTLIST href
+		src CDATA #REQUIRED
+		mime_type CDATA #REQUIRED>
+<!ELEMENT embed (#PCDATA)>
+	<!ATTLIST embed
+		encoding CDATA #FIXED "base64"
+		filename CDATA #REQUIRED
+		mime_type CDATA #REQUIRED>
+<!ENTITY % externalformat "href | embed">
+
+<!ELEMENT subject (#PCDATA)>
+<!ELEMENT description (#PCDATA)>
+
+<!ELEMENT open_access EMPTY>
+<!ELEMENT date_published (#PCDATA)>
+<!ELEMENT date_created (#PCDATA)>
+<!ELEMENT title (#PCDATA)>
+	<!-- Note that the locale attribute is currently only supported for
+	     article titles and abstracts. -->
+	<!ATTLIST title
+		locale CDATA #IMPLIED>
+
+<!-- Issue-related elements -->
+<!ELEMENT issue (title, description?, volume?, number?, year?, cover?, date_published?, (access_date | open_access)?, section+)>
+	<!ATTLIST issue
+		identification (title|num_vol_year|vol_year|year) "title"
+		published (true|false) "false"
+		current (true|false) "false"
+		public_id CDATA #IMPLIED>
+		
+<!ELEMENT cover (caption, image?)>
+<!ELEMENT caption (#PCDATA)>
+<!ELEMENT volume (#PCDATA)>
+<!ELEMENT number (#PCDATA)>
+<!ELEMENT year (#PCDATA)>
+<!ELEMENT access_date (#PCDATA)>
+
+<!-- Section-related elements -->
+<!ELEMENT section (title, abbrev?, article+)>
+<!ELEMENT abbrev (#PCDATA)>
+
+<!--
+  * Article-related elements
+  * NOTES:
+  *  - Although this DTD supports unlimited titles and abstracts, OJS 2.x
+  *    supports a maximum of 3 of each. These must correspond to the journal's
+  *    additional locales, if enabled, otherwise an error will be displayed.
+  -->
+<!ELEMENT article (title+, abstract*, date_published?, open_access?, author+, indexing?, pages?, (galley?, htmlgalley?)+, supplemental_file*)>
+	<!ATTLIST article
+		public_id CDATA #IMPLIED
+		language CDATA "en">
+
+<!ELEMENT abstract (#PCDATA)>
+	<!ATTLIST abstract
+		locale CDATA #IMPLIED>
+
+<!ELEMENT pages (#PCDATA)>
+
+<!ELEMENT indexing (discipline?, subject_class?, subject?, coverage?)>
+<!ELEMENT discipline (#PCDATA)>
+<!ELEMENT subject_class (#PCDATA)>
+
+<!ELEMENT coverage (geographical?, chronological?, sample?)>
+<!ELEMENT geographical (#PCDATA)>
+<!ELEMENT chronological (#PCDATA)>
+<!ELEMENT sample (#PCDATA)>
+
+<!ELEMENT firstname (#PCDATA)>
+<!ELEMENT middlename (#PCDATA)>
+<!ELEMENT lastname (#PCDATA)>
+<!ELEMENT affiliation (#PCDATA)>
+<!ELEMENT email (#PCDATA)>
+<!ELEMENT biography (#PCDATA)>
+
+<!ELEMENT author (firstname, middlename?, lastname, affiliation?, email?, biography?)>
+	<!-- One author should be designated as the primary contact for this
+	     article. If no author is designated, the first author with an
+	     email address will be used; if multiple authors are designated, the
+	     last designated author will be used. The designated author should
+	     have a valid email address if possible. -->
+	<!ATTLIST author
+		primary_contact (true|false) "false">
+
+<!ELEMENT label (#PCDATA)>
+<!ELEMENT file (%externalformat;)>
+<!ELEMENT stylesheet (%externalformat;)>
+<!ELEMENT image (%externalformat;)>
+
+<!ELEMENT galley (label, file)>
+<!ELEMENT htmlgalley (label, file, stylesheet?, image*)>
+
+<!ELEMENT supplemental_file (title, creator, subject?, type_other?, description?, publisher?, sponsor?, date_created?, source?, file)>
+	<!ATTLIST supplemental_file
+		type (research_instrument | research_materials | research_results | transcripts | data_analysis | data_set | source_text | other) "other"
+		language CDATA "en">
+<!ELEMENT creator (#PCDATA)>
+<!ELEMENT type_other (#PCDATA)>
+<!ELEMENT publisher (#PCDATA)>
+<!ELEMENT sponsor (#PCDATA)>
+<!ELEMENT source (#PCDATA)>
